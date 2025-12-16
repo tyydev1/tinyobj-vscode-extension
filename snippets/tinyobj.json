@@ -1,0 +1,26 @@
+{
+  "Object Definition": {
+    "prefix": "obj",
+    "body": [
+      "*${1:ObjectName}",
+      ">$0"
+    ],
+    "description": "Define a new object"
+  },
+  "Property": {
+    "prefix": "prop",
+    "body": [
+      ">${1:key} ${2:value}"
+    ],
+    "description": "Add a property"
+  },
+  "List Property": {
+    "prefix": "list",
+    "body": [
+      ">${1:listName}",
+      "- ${2:item1}",
+      "- ${3:item2}"
+    ],
+    "description": "Add a property with a list"
+  }
+}

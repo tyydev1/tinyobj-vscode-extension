@@ -1,0 +1,35 @@
+{
+  "name": "tinyobj",
+  "displayName": "TinyObj",
+  "description": "The TinyObj language support",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "tinyobj",
+        "aliases": ["TinyObj", "tobj"],
+        "extensions": [".tobj"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "tinyobj",
+        "scopeName": "source.tinyobj",
+        "path": "./syntaxes/tinyobj.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "tinyobj",
+        "path": "./snippets/tinyobj.json"
+      }
+    ]
+  }
+}

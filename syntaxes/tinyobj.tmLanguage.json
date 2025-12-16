@@ -1,0 +1,57 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "TinyObj",
+  "scopeName": "source.tinyobj",
+  "patterns": [
+    {
+      "comment": "Comments (# or //)",
+      "match": "(#|//).*$",
+      "name": "comment.line.tinyobj"
+    },
+    {
+      "comment": "Object Declaration (*User)",
+      "match": "^\\s*(\\*+)([a-zA-Z0-9._$]+)",
+      "captures": {
+        "1": { "name": "keyword.control.directive.tinyobj" },
+        "2": { "name": "entity.name.class.tinyobj" }
+      }
+    },
+    {
+      "comment": "Property Key (>name)",
+      "match": "^\\s*(>)([a-zA-Z0-9._$]+)",
+      "captures": {
+        "1": { "name": "keyword.operator.tinyobj" },
+        "2": { "name": "variable.other.property.tinyobj" }
+      }
+    },
+    {
+      "comment": "List Item Dash (-)",
+      "match": "^\\s*(-)\\s",
+      "captures": {
+        "1": { "name": "punctuation.definition.list.begin.tinyobj" }
+      }
+    },
+    {
+      "comment": "Keywords (true, false, nothing)",
+      "match": "\\b(true|false|nothing)\\b",
+      "name": "constant.language.tinyobj"
+    },
+    {
+      "comment": "Numbers",
+      "match": "\\b-?\\d+(\\.\\d+)?\\b",
+      "name": "constant.numeric.tinyobj"
+    },
+    {
+      "comment": "Double Quoted Strings",
+      "begin": "\"",
+      "end": "\"",
+      "name": "string.quoted.double.tinyobj",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.tinyobj"
+        }
+      ]
+    }
+  ]
+}
