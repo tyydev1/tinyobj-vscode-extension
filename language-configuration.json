@@ -8,5 +8,14 @@
   ],
   "surroundingPairs": [
     { "open": "\"", "close": "\"" }
-  ]
+  ],
+  "indentationRules": {
+    // Increase indent after an Object declaration (*) or after a property line (>)
+    // The lookahead ensures it doesn't increase if a list item (-) immediately follows
+    "increaseIndentPattern": "^\\s*(\\*|>)((?!\\s*(-)\\s*).)*$", 
+    
+    // FIX: Decrease indent only for new objects (*) or list items (-).
+    // We REMOVE '>' here to stop it from breaking indentation when typing a property key.
+    "decreaseIndentPattern": "^\\s*(\\*|-)\\s*.*$"
+  }
 }

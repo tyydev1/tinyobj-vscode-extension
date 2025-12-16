@@ -2,25 +2,35 @@
   "Object Definition": {
     "prefix": "obj",
     "body": [
-      "*${1:ObjectName}",
-      ">$0"
+      "*${1:$}",
+      "\t$0"
     ],
     "description": "Define a new object"
   },
-  "Property": {
+  "Property (Value)": {
     "prefix": "prop",
     "body": [
-      ">${1:key} ${2:value}"
+      "> ${1:key}  ${2:value}" 
     ],
-    "description": "Add a property"
+    "description": "Add a property with at least 2 spaces (TON1 Weak Convention)"
   },
-  "List Property": {
+  "Property (List)": {
     "prefix": "list",
     "body": [
-      ">${1:listName}",
-      "- ${2:item1}",
-      "- ${3:item2}"
+      ">${1:name}",
+      "\t- ${2:item1}",
+      "\t- ${3:item2}"
     ],
-    "description": "Add a property with a list"
+    "description": "Add a property containing a list (TON1 List Indentation)"
+  },
+  "TON1 Block Comment": {
+    "prefix": "comment",
+    "body": [
+      "// ------------------------------------",
+      "// ${1:COMMENT BLOCK}",
+      "// ------------------------------------",
+      "$0"
+    ],
+    "description": "TON1 Style Block Comment"
   }
 }

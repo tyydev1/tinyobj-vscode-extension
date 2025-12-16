@@ -1,20 +1,31 @@
 {
-  "name": "tinyobj",
+  "name": "tinyobj-vscode-extension",
   "displayName": "TinyObj",
-  "description": "The TinyObj language support",
+  "description": "Syntax Highlighting and Snippets for the TinyObj (TOBJ) data format.",
+  "icon": "icon.png",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.107.0"
+    "vscode": "^1.80.0"
   },
   "categories": [
-    "Programming Languages"
+    "Programming Languages",
+    "Snippets"
   ],
+  "activationEvents": [
+    "onLanguage:tinyobj"
+  ],
+  "main": "./out/extension.js",
   "contributes": {
     "languages": [
       {
         "id": "tinyobj",
-        "aliases": ["TinyObj", "tobj"],
-        "extensions": [".tobj"],
+        "aliases": [
+          "TinyObj Notation",
+          "tobj"
+        ],
+        "extensions": [
+          ".tobj"
+        ],
         "configuration": "./language-configuration.json"
       }
     ],
@@ -31,5 +42,24 @@
         "path": "./snippets/tinyobj.json"
       }
     ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.19.1",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "^8.47.0",
+    "typescript": "^5.1.6",
+    "@vscode/test-cli": "latest",
+    "@vscode/test-web": "latest"
   }
 }

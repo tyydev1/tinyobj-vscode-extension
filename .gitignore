@@ -1,3 +1,16 @@
-node_modules
-*.vsix
-.env
+# Dependencies
+/node_modules
+
+# TypeScript/JavaScript build output
+/out
+/dist
+
+# VS Code specific
+.vscode-test
+.vscode-test-web
+.DS_Store
+
+# Yeoman/npm files
+npm-debug.log*
+yarn-error.log*
+.yo-rc.json

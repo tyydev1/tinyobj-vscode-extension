@@ -17,8 +17,8 @@
       }
     },
     {
-      "comment": "Property Key (>name)",
-      "match": "^\\s*(>)([a-zA-Z0-9._$]+)",
+      "comment": "Property Key (> key or >key)",
+      "match": "^\\s*(>)\\s*([a-zA-Z0-9._$]+)", 
       "captures": {
         "1": { "name": "keyword.operator.tinyobj" },
         "2": { "name": "variable.other.property.tinyobj" }
