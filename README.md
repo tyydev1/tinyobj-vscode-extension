@@ -1,65 +1,78 @@
-# tinyobj README
+# 🗃️ TOBJ Language Support for Visual Studio Code
 
-This is the README for your extension "tinyobj". After writing up a brief description, we recommend including the following sections.
+**TinyObj (TOBJ)** is a simple, human-readable data format designed for configuration and data exchange.
 
-## Features
+This extension provides robust language support for **.tobj** files within Visual Studio Code. It is built to support the **TON1 (TinyObj Notation 1)** style guide.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## ✨ Features
 
-For example if there is an image subfolder under your extension project workspace:
+### 🌈 Syntax Highlighting
 
-\!\[feature X\]\(images/feature-x.png\)
+Provides clear and distinct coloring for all elements of the TOBJ syntax to enhance readability and catch errors quickly.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+| Element                | Description                                                           | Highlight Color (Typically)        |
+| :--------------------- | :-------------------------------------------------------------------- | :--------------------------------- |
+| **Object Declaration** | Starts with `*` followed by the object name (e.g., `*User.Config`)    | Keyword/Class Name (Blue/Yellow)   |
+| **Property Key**       | Starts with `>` followed by the key (e.g., `> isActive`, `> name`)    | Keyword/Operator (Blue/Teal)       |
+| **Values**             | Strings, Numbers, and Language Constants (`true`, `false`, `nothing`) | String/Number/Constant (Red/Green) |
+| **List Item**          | The dash prefix `-` for list items                                    | Punctuation (Light Blue/Gray)      |
+| **Comments**           | Single-line comments starting with `#` or `//`                        | Comment (Green/Gray)               |
 
-## Requirements
+### 💡 Snippets (Quick Code Insertion)
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Speed up development with intuitive prefix triggers.
 
-## Extension Settings
+| Prefix    | Description                                     | Output                                            |
+| :-------- | :---------------------------------------------- | :------------------------------------------------ |
+| `obj`     | Defines a new Object/Class.                     | `*ObjectName`                                     |
+| `prop`    | Defines a standard key-value Property.          | `> key  value`                                    |
+| `list`    | Defines a list Property with two sample items.  | `> listName` followed by indented `- item` lines. |
+| `comment` | Inserts a styled **TON1** Block Comment Header. | `// ----------------...`                          |
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+### 📏 Smart Indentation
 
-For example:
+Custom indentation rules (in adherence to **TON1**) ensure consistent formatting:
 
-This extension contributes the following settings:
+- Typing **`*`** (New Object) or **`>`** (New Property) automatically increases the indent level on the next line.
+- Indentation is correctly managed for properties and list items.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## 🚀 Installation
 
-## Known Issues
+### 1. Marketplace Installation (Recommended)
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+1.  Open VS Code.
+2.  Go to the **Extensions** view (`Ctrl+Shift+X` or `Cmd+Shift+X`).
+3.  Search for **TinyObj (TOBJ)**.
+4.  Click **Install**.
 
-## Release Notes
+### 2. Manual VSIX Installation
 
-Users appreciate release notes as you update your extension.
+1.  Download the latest `.vsix` package from the [Releases page](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/releases/latest).
+2.  In VS Code, open the Extensions view.
+3.  Click the **More Actions** menu (`...`) and select **Install from VSIX...**
+4.  Select the downloaded `.vsix` file.
 
-### 1.0.0
+## ⚙️ Usage
 
-Initial release of ...
+1.  Create a new file with the extension **`.tobj`**.
+2.  The extension will automatically activate.
+3.  Start typing! Use the snippet prefixes (like `*`, `prop`, `list`) to quickly insert common structures.
 
-### 1.0.1
+### Example TOBJ Structure (TON1 Style):
 
-Fixed issue #.
+```tobj
+// Configuration for a Game Asset
+*Asset.Player
+    > id       1001
+    > name     "The Vanguard"
+    > enabled  true
 
-### 1.1.0
+    > stats
+        - 150.5  // health
+        - 35     // attack
+        - 0.9    // resistance
 
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+*Settings
+    > debugMode false
+    > maxFPS    60
+```
