@@ -11,6 +11,10 @@
     "Programming Languages",
     "Snippets"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tyydev1/tinyobj-vscode-extension.git" 
+  },
   "activationEvents": [
     "onLanguage:tinyobj"
   ],
